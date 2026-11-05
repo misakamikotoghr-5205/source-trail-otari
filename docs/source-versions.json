@@ -1,0 +1,49 @@
+{
+  "checked_on": "2026-11-05",
+  "sources": [
+    {
+      "repository": "mozilla-ai/otari",
+      "commit": "3cca8d6759e3b91c1f6817a8d53d4e3a80e0866e",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/mozilla-ai/otari/3cca8d6759e3b91c1f6817a8d53d4e3a80e0866e/README.md",
+          "sha256": "ad01a0a0089bbc4b46898a965abd460df0daef9aabd023fd7fe63f09d7b39d8d"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/mozilla-ai/otari/3cca8d6759e3b91c1f6817a8d53d4e3a80e0866e/LICENSE",
+          "sha256": "1e14c0a6ef99f7be39b327ae1ee922d03d176fabcaae8913317b7c13cf21fb96"
+        },
+        {
+          "path": "docs/api-reference.md",
+          "url": "https://raw.githubusercontent.com/mozilla-ai/otari/3cca8d6759e3b91c1f6817a8d53d4e3a80e0866e/docs/api-reference.md",
+          "sha256": "2a67b255fbc392d6db7f7937b40b83a6e5952ceab1bc1b2e66a0a79f6e62bd8f"
+        },
+        {
+          "path": "docs/use-with-opencode.md",
+          "url": "https://raw.githubusercontent.com/mozilla-ai/otari/3cca8d6759e3b91c1f6817a8d53d4e3a80e0866e/docs/use-with-opencode.md",
+          "sha256": "8d27b22fe83b0cf75d45dbdae7d12368991b434df304e1cd183f126c7dd97627"
+        }
+      ],
+      "reuse": "Protocol/design reference only; no source code copied or imported"
+    },
+    {
+      "repository": "hypothesis/h",
+      "commit": "18e30d6b1feda29f291140e29dbdedd33c45fb47",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/hypothesis/h/18e30d6b1feda29f291140e29dbdedd33c45fb47/README.md",
+          "sha256": "2aaa25d2ab02a0e3f6360f775e7cec9247c4404ceaf1df32a4dd67816487102f"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/hypothesis/h/18e30d6b1feda29f291140e29dbdedd33c45fb47/LICENSE",
+          "sha256": "34dacbf7c2ae9fd5e8387ecc39b3c273b89600ec467ad4b90fc3850d18162d0e"
+        }
+      ],
+      "reuse": "Protocol/design reference only; no source code copied or imported"
+    }
+  ]
+}

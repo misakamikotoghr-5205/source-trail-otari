@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "source-trail-otari"
+version = "1.0.0"
+description = "Exact-span extractive research notes with disagreement gates and an optional hosted Otari adapter"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+source-trail = "source_trail.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["source_trail*"]

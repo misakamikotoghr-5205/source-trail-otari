@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "title": "Repair workshop planning notes — fictional sources",
+  "sources": [
+    {
+      "id": "host",
+      "title": "Fictional host note",
+      "text": "The workshop opens at 09:30. Visitors should bring their own charger. Repairs are not guaranteed."
+    },
+    {
+      "id": "volunteer",
+      "title": "Fictional volunteer note",
+      "text": "The workshop supplies chargers. A quiet corner is available."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "opening",
+      "source_id": "host",
+      "start": 0,
+      "end": 28,
+      "quote": "The workshop opens at 09:30.",
+      "topic": "opening",
+      "position": "nine-thirty"
+    },
+    {
+      "id": "charger_host",
+      "source_id": "host",
+      "start": 29,
+      "end": 69,
+      "quote": "Visitors should bring their own charger.",
+      "topic": "charger",
+      "position": "bring-own"
+    },
+    {
+      "id": "charger_volunteer",
+      "source_id": "volunteer",
+      "start": 0,
+      "end": 31,
+      "quote": "The workshop supplies chargers.",
+      "topic": "charger",
+      "position": "supplied"
+    },
+    {
+      "id": "quiet",
+      "source_id": "volunteer",
+      "start": 32,
+      "end": 60,
+      "quote": "A quiet corner is available.",
+      "topic": "space",
+      "position": "quiet-corner"
+    }
+  ]
+}
