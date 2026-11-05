@@ -1,5 +1,13 @@
 # Source Trail
 
+**Preexisting work: all current code, synthetic data, pilot results and documents
+were created on 2026-11-05, before the Apart Research November 13–15, 2026 sprint.
+They are preparation, not research performed during that future event.** The
+current target is [Apart AI x Epistemics, Track 2/3](docs/competition.md); signup,
+new sprint-period research and the required research-report PDF remain undone.
+Otari is an optional provider adapter; Mozilla is only a
+[historical candidate, not counted as a selected event](docs/mozilla-candidate.md).
+
 Turn a user-supplied document packet into **extractive, source-aligned research
 notes**. Every accepted claim is a verbatim quote with exact source offsets. A
 model can choose relevant anchors, but cannot invent a quote, paraphrase a claim,
@@ -53,6 +61,23 @@ recalculation. There is no digital signature or trusted external verification.
 Packets are bounded to 30 documents, 20,000 characters each, 80 KB aggregate UTF-8
 document context, 100 anchors and 20 selected quotes. Oversized input is rejected,
 never silently removed from context.
+
+## Versioned synthetic pilot
+
+```sh
+python3 experiments/pilot.py --out output/my-pilot-v1
+```
+
+This runs sixteen original synthetic cases through the same packet/selection
+under quote-only, exact-span-only and full-gate policies. A new output directory
+gets reproducible per-case JSON, summary and Markdown, with dataset/protocol/code
+hashes. [Protocol, results and limits](docs/pilot.md) explain the independently
+authored review expectations, separate input rejection from annotation holds,
+and publish numerator/denominator counts. Wrong/missing labels still cause two
+of five intended reviews to be missed by the full gate; compatible text with
+wrong labels also causes an unnecessary hold. These failures are retained.
+No LLM, remote provider, semantic-truth measurement or statistical generalization
+is involved. All results are preexisting November 5 pilot preparation.
 
 ## Optional real hosted Otari
 
@@ -128,15 +153,16 @@ python3 scripts/package.py
 python3 -m source_trail verify output/REPORT_SHA256.json
 ```
 
-18 tests cover exact/Unicode spans, invalid imports, hidden opposing annotations,
+21 tests cover exact/Unicode spans, invalid imports, hidden opposing annotations,
 unsupported model claims, content hashes, the official Otari request contract,
 configuration/redirect/tool rejection, error sanitization, concurrent/persistent
-idempotency, no automatic paid retry, local HTTP and CLI holds. The source ZIP in
+idempotency, no automatic paid retry, local HTTP and CLI holds, pilot failure
+classification/denominators and byte-identical reproduction. The source ZIP in
 `dist/` excludes runtime ledgers, outputs, secrets and virtual environments.
 No workflow/remote CI or successful hosted-inference claim is included.
 
 MIT license; [comparison sources and licenses](docs/landscape.md). The
-[Mozilla competition record](docs/competition.md) explains late-registration and
-deadline-timezone uncertainty, and the real hosted usage/video/feedback still
-needed. No signup email, account registration, terms acceptance or submission
-was performed.
+[Apart competition record](docs/competition.md) gives the November 16 19:59
+Beijing deadline, preexisting-work disclosure and required official-template PDF,
+abstract and limitations/dual-use appendix. A repository alone is not an entry.
+No account registration, signup, terms acceptance or submission was performed.

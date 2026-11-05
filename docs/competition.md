@@ -1,47 +1,64 @@
-# Mozilla Otari — MozFest Developers Wilding: Online
+# Apart Research AI x Epistemics Research Sprint
 
-Checked 2026-11-05. Primary sources: [Mozilla Foundation's event entry](https://www.mozillafoundation.org/en/festival/side-events/),
-and the [official rules and instructions](https://otari.ai/devs-wilding) linked
-there. The official instructions were read in the rendered browser during this
-collaborative session; a plain HTTP fetch can return the general landing page.
+Checked 2026-11-05 against the [official event, guidelines and FAQ](https://apartresearch.com/sprints/ai-x-epistemics-research-sprint-2026-11-13-to-2026-11-15).
 
-The event runs **October 28–November 11, 2026**, entirely online. The instructions
-invite individual developers and existing/unfinished side projects, with no
-special age/student/country qualification stated there. This absence is not a
-legal eligibility or mainland-China hosted-account/payment guarantee. The entrant
-must check the account terms, applicable law and prize arrangements themselves.
+## Official participation and delivery
 
-**The posted deadline is November 11 at 23:59; the official instructions do not
-specify its timezone. No UTC/Beijing conversion is asserted.** Prepare early and
-confirm the actual cutoff with the organizer. Third-party DoraHacks summaries or
-their displayed timezone must not override this uncertainty.
+Free, global, online, solo or team; no prior AI-safety background required.
+Signup is currently enabled, but the research weekend is **November 13–15,
+2026**, still in the future. No personal eligibility guarantee is made.
+The entrant must sign up themselves. Submission closes **November 15 23:59 AoE
+(UTC−12) = November 16 11:59 UTC = November 16 19:59 Beijing**.
 
-Official signup is an email to `marcus+wilding@mozilla.org` with name/pseudonym,
-the Otari account email and one-sentence project summary. Creating an Otari
-account alone is not entry. The instructions still describe a confirmation
-"before October 28" despite displaying the signup steps later; late registration
-as of November 5 therefore needs the entrant's own confirmation. No email was
-sent and no availability of promotional tokens is promised.
+Prior work is allowed when disclosed; identify new sprint-period contributions
+and mark older code preexisting in both README and report. A person may join at
+most two projects. Track 2 is Trust Infrastructure; Track 3 is Epistemic Products.
 
-The project must use **hosted Otari.ai as its AI gateway**. A self-hosted gateway,
-offline fixture or API contract mock does not meet that requirement. Create a new
-hackathon branch; submit its public GitHub URL/name and the first commit that
-actually used Otari. Disclose used features, relevant Otari issues/PRs if any,
-a **3–5 minute actual working-project video**, and product feedback (written or
-3–5 minute screen recording). The official instructions also ask participants to
-join Mozilla OSAI Discord and star the Otari repository; none was done here.
-Feedback should cover features tried, friction/bugs with reproduction, missing
-capabilities and where direct provider calls felt preferable. Existing projects
-are encouraged, but original contributions and third-party permissions remain
-the entrant's responsibility; no blanket OSS-ownership exemption is implied.
+Submit through the official event form: PDF using its linked official template,
+at most eight pages excluding references/appendices, title, **150–250 word
+abstract**, authors/affiliations, and required **Limitations and Dual-Use / Ethical
+Considerations appendix**. Public code and a **3–5 minute video are optional**.
+AI assistance is allowed; authors remain responsible for claims and results.
 
-Source Trail is a newly implemented candidate using user-provided research notes,
-exact quote anchors and conservative disagreement gates. It implements an
-optional adapter for the actual hosted protocol; tests inject a transport. This
-is not the required first real-use commit or a completed official entry.
+Participation is distinct from prize payment. [Prize terms](https://apartresearch.com/sprints/prize-terms)
+require compatible US-charity bank/international SWIFT receipt or designation
+of a registered charity; the entrant must check these conditions themselves.
 
-Still needed: confirm late signup and timezone, authorized account/model/credits,
-create the appropriate branch, perform and record genuine hosted calls, inspect
-actual request/usage behavior, record demo and feedback, and submit via the
-organizer's email instructions. Source code delivery is separate from all of
-these account/entry actions.
+## This project's scope and preexisting status
+
+**Every file, experiment, fixture and result currently in this repository was
+created on 2026-11-05, before the sprint. None is claimed as work conducted during
+November 13–15.** No research report, author identity, affiliation, signup,
+terms acceptance, registration or official submission was fabricated or sent.
+
+The primary proposed fit is Track 2: an auditable citation-alignment layer.
+Track 3 is a secondary fit for a human-reviewed research-note workflow. This
+tool only proves exact textual alignment and exposes user-labeled disagreement;
+it does not perform the semantic citation-entailment verification described in
+some event examples. Track selection/acceptance remains the entrant's decision.
+
+The versioned [synthetic pilot](pilot.md) is runnable preparation: identical
+packets/selections pass through a quote-only comparator, an exact-span ablation,
+and the frozen full gate. Its public results retain wrong-annotation failures
+and conservative withholding costs. It is not an LLM benchmark, human study or
+factual-truth measurement. The optional Otari adapter is not required for this
+sprint and no hosted request was made.
+
+## What still needs to happen during the sprint
+
+After the entrant's own signup and rule review, define and perform genuinely
+new work during November 13–15: for example, independently authored/adjudicated
+cases, a prospective annotation-perturbation study, or a small user workflow
+study with appropriate consent and privacy handling. Separate exploratory
+pilot data from any later evaluation; publish disagreement and negative results
+instead of tuning oracles to make the gate win. Record the new commit/data
+versions and actual dates. No such future study is claimed here.
+
+Prepare the required report using the official template, including authors'
+real names/affiliations, methods, honest baselines/results and the ethical
+appendix. The current Markdown documentation is preparation, **not the required
+PDF or a completed entry**. No external account action has been performed.
+
+The earlier Mozilla candidate is retained only in
+[mozilla-candidate.md](mozilla-candidate.md), explicitly **not counted as one of
+the selected current events** because late registration was unconfirmed.

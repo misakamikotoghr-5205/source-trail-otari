@@ -1,0 +1,29 @@
+{
+  "protocol_version": "1.0.0",
+  "declared_on": "2026-11-05",
+  "status": "Preexisting pilot; declared alongside its fixtures and code, not independently preregistered or sprint-period research",
+  "unit": "One authored packet plus an identical anchor selection for all three policies",
+  "policies": {
+    "quote_only": "Resolve the same selected anchor IDs and release their quote strings without checking sources, offsets, source text or labels. This is a deliberately weak engineered comparator, not a real system or LLM.",
+    "exact_span_only": "Use the production validate_packet and selection functions over the whole packet, then release selected exact quotes without the disagreement-label gate.",
+    "full_gate": "Use the same production validation and selection, then production build_note including the whole-packet user-label disagreement gate. No oracle fields enter any policy."
+  },
+  "oracle": "Independent author expectations are stored explicitly per synthetic case, not derived by the scorer from the packet's position labels. selected_spans_valid concerns selected citations; review_required is the author's scenario-level expectation of a manual hold, not factual truth or semantic entailment.",
+  "metrics": {
+    "invalid_selected_citation_release": "Cases released with author-marked invalid selected citation / all cases marked invalid selected citation. Measures structural citation defects only.",
+    "required_review_miss": "Cases released despite an independent author expectation of manual review / all author-marked review-required cases. No semantic-truth or LLM claim.",
+    "eligible_quote_withheld": "Cases withheld with valid selected spans and no independent review requirement / all cases with valid selected spans and no review requirement. Includes conservative rejection because an unselected anchor is invalid.",
+    "input_rejected_cases": "Raw case count rejected by input validation; separate from annotation holds.",
+    "annotation_hold_cases": "Raw case count withheld by the full-packet disagreement-label rule.",
+    "reporting": "Publish every case and n/N; zero denominator means rate null and display N/A. Metrics use different possibly overlapping subsets, not a summed accuracy score."
+  },
+  "limitations": [
+    "Sixteen small authored synthetic cases are a mechanism pilot, not a representative dataset, held-out evaluation, model-performance estimate or statistical generalization.",
+    "No LLM, Otari, external search or human participant is used. No claim is made about semantic truth, entailment, decision quality or source reliability.",
+    "The author oracle is a declared test intention and may be wrong; it was not independently expert-annotated, blinded or adjudicated.",
+    "The quote-only comparator is deliberately weak. Both stronger policies validate the entire packet; this controls their ablation but does not represent every plausible citation system.",
+    "Wrong or missing human labels can hide a needed review; different labels on compatible text can cause a false hold. These cases remain visible rather than relabeled to make the full gate win.",
+    "Whole-packet validation and holds can suppress an otherwise uncontested selected quote. A later study should measure this cost with independently authored real tasks and annotations.",
+    "Version 1.0.0 and all present results were created on 2026-11-05 before the Apart sprint. New sprint work and the required research report remain undone."
+  ]
+}

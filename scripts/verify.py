@@ -7,7 +7,7 @@ import sys
 import tempfile
 
 root=Path(__file__).resolve().parents[1]
-for folder in ['source_trail','scripts','tests']:
+for folder in ['source_trail','scripts','tests','experiments']:
     for source in (root/folder).glob('*.py'): ast.parse(source.read_text(encoding='utf-8'), filename=str(source))
 env=os.environ | {'PYTHONDONTWRITEBYTECODE':'1','SOURCE_TRAIL_MODE':'fixture'}
 subprocess.run([sys.executable,'-m','unittest','discover','-s','tests','-v'],cwd=root,env=env,check=True)
@@ -19,4 +19,4 @@ with tempfile.TemporaryDirectory() as temporary:
     report=next(Path(temporary,'output').glob('*.json'))
     value=json.loads(report.read_text());assert value['replayed'] is True
     subprocess.run([sys.executable,'-m','source_trail','verify',str(report)],cwd=root,env=env,check=True)
-print('Syntax, behavior tests, offline CLI export and persisted replay passed. No provider call was made.')
+print('Syntax, behavior tests, versioned synthetic pilot reproduction, offline CLI export and persisted replay passed. No provider call was made.')

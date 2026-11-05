@@ -1,21 +1,26 @@
-# A real 3–5 minute demonstration, when authorized
+# Optional demonstration — not the required Apart research report
 
-1. Explain the problem: a plausible note can cite a document yet say something
-   absent from the quoted span. Show the fictional input packet and full context.
-2. Run local `review`, open JSON/Markdown and inspect exact offsets, quote text
-   and complete-source hashes. Say this is a deterministic fixture, not inference.
-3. Show the disagreement packet: the second document says chargers are supplied.
-   Even selecting only the host's bring-your-own quote leaves all accepted claims
-   blocked because opposing user annotations are checked across the packet.
-4. Only after entrant signup/account authorization, configure actual hosted Otari
-   and run `suggest` on the hackathon branch. Show the working result and private
-   audit's request ID/cost when present; show matching Activity in the account.
-   Hide API keys, account email and any private source text from the recording.
-5. Repeat the same request key. Demonstrate persisted replay without a second
-   request, and explain why failed/pending requests require manual usage review
-   before any new key. Show a tampered span or extra model claim rejected locally.
+A 3–5 minute video is optional for Apart. The official-template PDF and other
+required material in [competition.md](competition.md) remain necessary. Explain
+that all current code and pilot results are **preexisting 2026-11-05 work**.
 
-Keep the first commit that actually used hosted Otari identifiable. Do not claim
-Step 4 was run when only fixtures/contracts were used. Collect honest product
-feedback separately: configuration, JSON-output support, error/region messages,
-request IDs and usage visibility; do not invent bugs or positive feedback.
+1. Show a fictional packet and complete context. Run local `review` and inspect
+   exact Unicode offsets, quote text and full-source hashes. This is deterministic
+   extraction, not model inference or semantic verification.
+2. Show the disagreement packet. Selecting only the favorable bring-your-own
+   quote still holds all claims because the opposite human annotation is present.
+3. Run `python3 experiments/pilot.py --out output/recorded-pilot-v1`. Inspect
+   `cases.json` and the three-policy n/N table. Show wrong same labels, a missing
+   opposing annotation and compatible text with wrong differing labels. Explain
+   both missed intended reviews and unnecessary holds without claiming truth.
+4. Explain the weak comparator, whole-packet cost, synthetic sampling and author
+   oracle limitations. Separate this preparation from any genuinely new work
+   later performed during the sprint. Do not invent participants or results.
+5. Optionally demonstrate persisted fixture replay. Actual Otari use is separate
+   and unnecessary for Apart; never show a fixture as a hosted request. If a user
+   later authorizes a hosted demonstration, hide secrets/private documents and
+   report actual request evidence honestly.
+
+No video, hosted call, future sprint study or official submission was created
+by writing this script. Mozilla's earlier requirements are only a historical
+candidate record in [mozilla-candidate.md](mozilla-candidate.md).

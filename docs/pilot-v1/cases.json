@@ -1,0 +1,1441 @@
+{
+  "cases": [
+    {
+      "case_sha256": "b67e14d576fe3f70d637ed2edbfc3e8c1eb827fd7debf1caae92de98174c7eef",
+      "condition": "clean_control",
+      "description": "One correctly anchored English quote.",
+      "id": "clean_english",
+      "oracle": {
+        "rationale": "The selected quote exactly matches its only source; no scenario-level manual hold is intended.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 19,
+            "id": "a",
+            "position": "nine",
+            "quote": "Doors open at nine.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Doors open at nine.",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "d328ad9eab56a78f5a9711396c2cfd2d0bf416fa3f66aa63a2d70597ad00075b",
+      "condition": "clean_control",
+      "description": "Unicode codepoint offsets correctly skip one emoji.",
+      "id": "clean_unicode",
+      "oracle": {
+        "rationale": "The Chinese quote starts at codepoint 1, not UTF-8 byte 4, and there is no competing statement.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 7,
+            "id": "a",
+            "position": "nine",
+            "quote": "请自带杯子。",
+            "source_id": "host",
+            "start": 1,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "🍵请自带杯子。",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "请自带杯子。"
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "请自带杯子。"
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "请自带杯子。"
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "3b0e92e69eb1ea85027ab4a7a1d2d0ca696357ce7aa8f920b83b361c27c38ea3",
+      "condition": "clean_control",
+      "description": "Two compatible instructions share a correct position label.",
+      "id": "clean_agreement",
+      "oracle": {
+        "rationale": "Both independently authored source lines request visitors to bring a mug; manual disagreement review is not intended.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 26,
+            "id": "b",
+            "position": "bring-own",
+            "quote": "Please bring your own mug.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "Please bring your own mug.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "Please bring your own mug."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "Please bring your own mug."
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "Please bring your own mug."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a",
+          "b"
+        ]
+      }
+    },
+    {
+      "case_sha256": "0ba633c55dad7ec9bd4cc3774e837ce9e0130ff5815110292556f7a86c3a9d65",
+      "condition": "invalid_selected_citation",
+      "description": "A selected anchor references a nonexistent source ID.",
+      "id": "missing_source",
+      "oracle": {
+        "rationale": "No source named missing exists. This is an invalid selected citation, not an annotated disagreement.",
+        "review_required": false,
+        "selected_spans_valid": false
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 19,
+            "id": "a",
+            "position": "nine",
+            "quote": "Doors open at nine.",
+            "source_id": "missing",
+            "start": 0,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Doors open at nine.",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": true,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "46ed6808bb14a13a0d0dd840d5dfc438bb0c6081bddbbb66fbed1cb04d4af51c",
+      "condition": "invalid_selected_citation",
+      "description": "A plausible selected quote is absent from the referenced source.",
+      "id": "absent_quote",
+      "oracle": {
+        "rationale": "The source says nine, while the anchor quote says ten. Textual citation matching must reject it.",
+        "review_required": false,
+        "selected_spans_valid": false
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 19,
+            "id": "a",
+            "position": "nine",
+            "quote": "Doors open at ten.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Doors open at nine.",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": true,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at ten."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "b7ec169c390b0172d4b5f5ff2e185761c1900b35fae5cd2a7755c329fc746b96",
+      "condition": "invalid_selected_citation",
+      "description": "A source prefix moves a quote but its offsets are stale.",
+      "id": "moved_offsets",
+      "oracle": {
+        "rationale": "The quote still exists later in the document, but the supplied offsets no longer identify it. Silent relocation is not permitted.",
+        "review_required": false,
+        "selected_spans_valid": false
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 19,
+            "id": "a",
+            "position": "nine",
+            "quote": "Doors open at nine.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Update: Doors open at nine.",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": true,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "e9bf67355391af42d79f8867e4d7be2f749ed961d42c02f4fa0c2dd113373c7c",
+      "condition": "invalid_selected_citation",
+      "description": "Byte offsets are incorrectly supplied as Unicode codepoint indices.",
+      "id": "utf8_offsets_used_as_codepoints",
+      "oracle": {
+        "rationale": "The stored offsets are UTF-8 byte positions and exceed the source codepoint bounds; the selected citation is invalid.",
+        "review_required": false,
+        "selected_spans_valid": false
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 22,
+            "id": "a",
+            "position": "nine",
+            "quote": "请自带杯子。",
+            "source_id": "host",
+            "start": 4,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "🍵请自带杯子。",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": true,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "请自带杯子。"
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "e23b993ceb0fac5b7d23f4630734d9c13f7110ab3eb6dfc0a3ca9450497d7073",
+      "condition": "labeled_disagreement",
+      "description": "Both competing mug instructions are selected.",
+      "id": "disagreement_both_selected",
+      "oracle": {
+        "rationale": "The author intentionally wrote competing visitor instructions. A human should resolve which applies before this packet is released.",
+        "review_required": true,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 27,
+            "id": "b",
+            "position": "supplied",
+            "quote": "The workshop supplies mugs.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "The workshop supplies mugs.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "The workshop supplies mugs."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [
+            {
+              "positions": {
+                "bring-own": [
+                  "a"
+                ],
+                "supplied": [
+                  "b"
+                ]
+              },
+              "topic": "mugs"
+            }
+          ],
+          "decision": "withheld_review",
+          "failure_class": "annotated_disagreement",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "The workshop supplies mugs."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a",
+          "b"
+        ]
+      }
+    },
+    {
+      "case_sha256": "86654594de1a60f7e1b32948fe1c15b497c7bcf678469fe9dcba0a7d27db8af9",
+      "condition": "labeled_disagreement",
+      "description": "Only the favorable anchor is selected; opposing annotation remains in the packet.",
+      "id": "disagreement_opposition_omitted",
+      "oracle": {
+        "rationale": "The packet still contains competing visitor instructions even though selection omits the second. The manual-review expectation is unchanged.",
+        "review_required": true,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 27,
+            "id": "b",
+            "position": "supplied",
+            "quote": "The workshop supplies mugs.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "The workshop supplies mugs.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [
+            {
+              "positions": {
+                "bring-own": [
+                  "a"
+                ],
+                "supplied": [
+                  "b"
+                ]
+              },
+              "topic": "mugs"
+            }
+          ],
+          "decision": "withheld_review",
+          "failure_class": "annotated_disagreement",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "8d6e636af2595e65339ea787d6b741ec0c04570fcf80e6ba8096c62377ce3c3f",
+      "condition": "labeled_disagreement",
+      "description": "The selected door quote is uncontested, while another packet topic is disputed.",
+      "id": "disagreement_uncontested_selection",
+      "oracle": {
+        "rationale": "This protocol intentionally asks for packet-level review of unresolved mug instructions. Holding the unrelated door quote illustrates the conservative cost; it is not itself disputed.",
+        "review_required": true,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 27,
+            "id": "b",
+            "position": "supplied",
+            "quote": "The workshop supplies mugs.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 19,
+            "id": "opening",
+            "position": "nine",
+            "quote": "Doors open at nine.",
+            "source_id": "door",
+            "start": 0,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "The workshop supplies mugs.",
+            "title": "Fictional workshop note guest"
+          },
+          {
+            "id": "door",
+            "text": "Doors open at nine.",
+            "title": "Fictional workshop note door"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [
+            {
+              "positions": {
+                "bring-own": [
+                  "a"
+                ],
+                "supplied": [
+                  "b"
+                ]
+              },
+              "topic": "mugs"
+            }
+          ],
+          "decision": "withheld_review",
+          "failure_class": "annotated_disagreement",
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "opening"
+        ]
+      }
+    },
+    {
+      "case_sha256": "bfde05702d4dc0bd446bb8fd7a2c8cdcd56934f1118a709cf66750fee8b8b75f",
+      "condition": "annotation_false_negative",
+      "description": "Opposing instructions have erroneously identical human labels.",
+      "id": "wrong_same_position_labels",
+      "oracle": {
+        "rationale": "The author wrote competing mug instructions regardless of the incorrect same position labels. A label-only gate should be shown missing this intended review.",
+        "review_required": true,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 27,
+            "id": "b",
+            "position": "bring-own",
+            "quote": "The workshop supplies mugs.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "The workshop supplies mugs.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "6eeb0f315d4bc5f4e08aef834e6a970965bddb09df80ba74b55f9cfb394937e1",
+      "condition": "annotation_false_negative",
+      "description": "The opposing source remains in the packet but its human anchor annotation is missing.",
+      "id": "missing_opposing_annotation",
+      "oracle": {
+        "rationale": "The author wrote competing mug instructions in the two source texts. Omitting the opposing anchor annotation hides the intended manual review; exact matching does not infer missing annotations.",
+        "review_required": true,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "The workshop supplies mugs.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": true
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "05971866047958581d4bd7044c5ba562e6aca6a1849d744a6dc92eb370d85a77",
+      "condition": "annotation_false_positive",
+      "description": "Compatible bring-your-own instructions are incorrectly assigned different positions.",
+      "id": "compatible_quotes_wrong_distinct_labels",
+      "oracle": {
+        "rationale": "Both source lines request the same visitor behavior. Incorrect distinct position labels should expose an unnecessary annotation hold, not be treated as independent evidence of a real dispute.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 26,
+            "id": "b",
+            "position": "supplied",
+            "quote": "Please bring your own mug.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "Please bring your own mug.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [
+            {
+              "positions": {
+                "bring-own": [
+                  "a"
+                ],
+                "supplied": [
+                  "b"
+                ]
+              },
+              "topic": "mugs"
+            }
+          ],
+          "decision": "withheld_review",
+          "failure_class": "annotated_disagreement",
+          "flags": {
+            "eligible_quote_withheld": true,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "e2cd8aa75e7eda5cd59a847be6ca875a0ff070ebd12058b379e92194d5258c58",
+      "condition": "unselected_invalid_anchor",
+      "description": "The selected anchor is valid; an unselected anchor has a bad quote.",
+      "id": "invalid_unselected_anchor",
+      "oracle": {
+        "rationale": "Only the unselected citation is invalid. The selected quote is eligible in this author oracle, so whole-packet rejection is counted as a conservative withholding cost.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 26,
+            "id": "b",
+            "position": "bring-own",
+            "quote": "This line does not exist.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "mugs"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "Please bring your own mug.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": true,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "rejected_input",
+          "failure_class": "input_validation",
+          "flags": {
+            "eligible_quote_withheld": true,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": []
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "00fffcd523592301a79eef7acfe11e9c1d9a1da46e9f6826a7f66e9e6c78119a",
+      "condition": "clean_control",
+      "description": "Both offsets are corrected after the source prefix is added.",
+      "id": "relocated_offsets_repaired",
+      "oracle": {
+        "rationale": "This is the repaired control for moved_offsets. The selected exact quote now matches the updated source span.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 27,
+            "id": "a",
+            "position": "nine",
+            "quote": "Doors open at nine.",
+            "source_id": "host",
+            "start": 8,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Update: Doors open at nine.",
+            "title": "Fictional workshop note host"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Doors open at nine."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "case_sha256": "b7d956457c12a2a96c744e140da9fb6036e0dc132648dd1bd9e5c9c6b5d07513",
+      "condition": "clean_control",
+      "description": "Two correctly grouped, unrelated visitor instructions are selected.",
+      "id": "compatible_different_topics",
+      "oracle": {
+        "rationale": "A mug instruction and a door time concern different topics; correct different labels should not create a disagreement.",
+        "review_required": false,
+        "selected_spans_valid": true
+      },
+      "packet": {
+        "anchors": [
+          {
+            "end": 29,
+            "id": "a",
+            "position": "bring-own",
+            "quote": "Visitors bring their own mug.",
+            "source_id": "host",
+            "start": 0,
+            "topic": "mugs"
+          },
+          {
+            "end": 19,
+            "id": "b",
+            "position": "nine",
+            "quote": "Doors open at nine.",
+            "source_id": "guest",
+            "start": 0,
+            "topic": "opening"
+          }
+        ],
+        "schema_version": 1,
+        "sources": [
+          {
+            "id": "host",
+            "text": "Visitors bring their own mug.",
+            "title": "Fictional workshop note host"
+          },
+          {
+            "id": "guest",
+            "text": "Doors open at nine.",
+            "title": "Fictional workshop note guest"
+          }
+        ],
+        "title": "Synthetic workshop packet"
+      },
+      "policies": {
+        "exact_span_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "Doors open at nine."
+          ]
+        },
+        "full_gate": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "Doors open at nine."
+          ]
+        },
+        "quote_only": {
+          "conflicts": [],
+          "decision": "released",
+          "failure_class": null,
+          "flags": {
+            "eligible_quote_withheld": false,
+            "invalid_selected_citation_released": false,
+            "required_review_missed": false
+          },
+          "quotes": [
+            "Visitors bring their own mug.",
+            "Doors open at nine."
+          ]
+        }
+      },
+      "selection": {
+        "anchor_ids": [
+          "a",
+          "b"
+        ]
+      }
+    }
+  ],
+  "dataset_sha256": "8c9bf0413717b2fb6e70f906a04c1e7ee803275c527f223cfe1fece862923f7f",
+  "dataset_version": "1.0.0",
+  "implementation_sha256": {
+    "experiments/pilot.py": "66d1e3824f6c0add183d52f695fb10fcba6f49e861b220e3b6dbffc1e8e550e6",
+    "source_trail/core.py": "4487ef8ae57726d9c0c5ac6bbad7963005f995b7bce173ed75e568599c86d05a"
+  },
+  "inference_performed": false,
+  "pilot_version": "1.0.0",
+  "protocol_sha256": "b4e73cb9b23ad7e43d977e30717b5c87fd6952c9fdf965d01c1e324dc78f0c3d",
+  "synthetic_cases_only": true,
+  "work_status": "preexisting-2026-11-05-before-Apart-2026-11-13-sprint"
+}

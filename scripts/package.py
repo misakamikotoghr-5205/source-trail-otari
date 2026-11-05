@@ -2,7 +2,7 @@ from pathlib import Path
 import zipfile
 root=Path(__file__).resolve().parents[1];destination=root/'dist/source-trail.zip';destination.parent.mkdir(exist_ok=True)
 files=[root/name for name in ['README.md','LICENSE','.env.example','pyproject.toml']]
-for folder in ['source_trail','examples','docs','tests','scripts']:
+for folder in ['source_trail','examples','docs','tests','scripts','experiments']:
     files.extend(path for path in (root/folder).rglob('*') if path.is_file() and '__pycache__' not in path.parts and path.suffix!='.pyc')
 with zipfile.ZipFile(destination,'w',compression=zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(files):

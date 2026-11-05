@@ -26,8 +26,14 @@ fuzzy anchors, URL retrieval, public collaboration or automated publication.
 User position labels can be incomplete/wrong; exact excerpts can lack context.
 The restrictions are explicit rather than presented as solved reasoning.
 
-18 meaningful tests and the verify script exercise input/span bounds, claims
+21 meaningful tests and the verify script exercise input/span bounds, claims
 withheld under disagreement, unsupported replies, exact hosted protocol/region
 contract, no tools/redirects, no key/exception disclosure, persistent/concurrent
-idempotency, API and CLI behavior. All provider tests use injected transports;
-actual hosted-model success, registration and submission remain unevidenced.
+idempotency, API and CLI behavior, independent-oracle pilot failure counts and
+byte-identical experiment reproduction. All provider tests use injected
+transports; actual hosted-model success, registration and submission remain
+unevidenced. The [16-case pilot](pilot.md) is an independently implemented
+ablation using original synthetic data and the existing core; no upstream
+benchmark cases or evaluation code were copied. Everything is explicitly
+preexisting November 5 preparation for [Apart](competition.md), not future
+sprint-period research. Its full-gate misses and false holds are public.

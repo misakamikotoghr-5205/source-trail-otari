@@ -1,0 +1,733 @@
+{
+  "dataset_version": "1.0.0",
+  "created_on": "2026-11-05",
+  "provenance": "Original synthetic workshop text and explicit author expectations created for this preexisting pilot. No external dataset, personal data, model output or real factual claim is used. Oracles are authored scenario intentions, not expert-adjudicated truth.",
+  "cases": [
+    {
+      "id": "clean_english",
+      "condition": "clean_control",
+      "description": "One correctly anchored English quote.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 19,
+            "quote": "Doors open at nine.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "The selected quote exactly matches its only source; no scenario-level manual hold is intended."
+      }
+    },
+    {
+      "id": "clean_unicode",
+      "condition": "clean_control",
+      "description": "Unicode codepoint offsets correctly skip one emoji.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "🍵请自带杯子。"
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 1,
+            "end": 7,
+            "quote": "请自带杯子。",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "The Chinese quote starts at codepoint 1, not UTF-8 byte 4, and there is no competing statement."
+      }
+    },
+    {
+      "id": "clean_agreement",
+      "condition": "clean_control",
+      "description": "Two compatible instructions share a correct position label.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "Please bring your own mug."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 26,
+            "quote": "Please bring your own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a",
+          "b"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "Both independently authored source lines request visitors to bring a mug; manual disagreement review is not intended."
+      }
+    },
+    {
+      "id": "missing_source",
+      "condition": "invalid_selected_citation",
+      "description": "A selected anchor references a nonexistent source ID.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "missing",
+            "start": 0,
+            "end": 19,
+            "quote": "Doors open at nine.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": false,
+        "review_required": false,
+        "rationale": "No source named missing exists. This is an invalid selected citation, not an annotated disagreement."
+      }
+    },
+    {
+      "id": "absent_quote",
+      "condition": "invalid_selected_citation",
+      "description": "A plausible selected quote is absent from the referenced source.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 19,
+            "quote": "Doors open at ten.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": false,
+        "review_required": false,
+        "rationale": "The source says nine, while the anchor quote says ten. Textual citation matching must reject it."
+      }
+    },
+    {
+      "id": "moved_offsets",
+      "condition": "invalid_selected_citation",
+      "description": "A source prefix moves a quote but its offsets are stale.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Update: Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 19,
+            "quote": "Doors open at nine.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": false,
+        "review_required": false,
+        "rationale": "The quote still exists later in the document, but the supplied offsets no longer identify it. Silent relocation is not permitted."
+      }
+    },
+    {
+      "id": "utf8_offsets_used_as_codepoints",
+      "condition": "invalid_selected_citation",
+      "description": "Byte offsets are incorrectly supplied as Unicode codepoint indices.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "🍵请自带杯子。"
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 4,
+            "end": 22,
+            "quote": "请自带杯子。",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": false,
+        "review_required": false,
+        "rationale": "The stored offsets are UTF-8 byte positions and exceed the source codepoint bounds; the selected citation is invalid."
+      }
+    },
+    {
+      "id": "disagreement_both_selected",
+      "condition": "labeled_disagreement",
+      "description": "Both competing mug instructions are selected.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "The workshop supplies mugs."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 27,
+            "quote": "The workshop supplies mugs.",
+            "topic": "mugs",
+            "position": "supplied"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a",
+          "b"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": true,
+        "rationale": "The author intentionally wrote competing visitor instructions. A human should resolve which applies before this packet is released."
+      }
+    },
+    {
+      "id": "disagreement_opposition_omitted",
+      "condition": "labeled_disagreement",
+      "description": "Only the favorable anchor is selected; opposing annotation remains in the packet.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "The workshop supplies mugs."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 27,
+            "quote": "The workshop supplies mugs.",
+            "topic": "mugs",
+            "position": "supplied"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": true,
+        "rationale": "The packet still contains competing visitor instructions even though selection omits the second. The manual-review expectation is unchanged."
+      }
+    },
+    {
+      "id": "disagreement_uncontested_selection",
+      "condition": "labeled_disagreement",
+      "description": "The selected door quote is uncontested, while another packet topic is disputed.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "The workshop supplies mugs."
+          },
+          {
+            "id": "door",
+            "title": "Fictional workshop note door",
+            "text": "Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 27,
+            "quote": "The workshop supplies mugs.",
+            "topic": "mugs",
+            "position": "supplied"
+          },
+          {
+            "id": "opening",
+            "source_id": "door",
+            "start": 0,
+            "end": 19,
+            "quote": "Doors open at nine.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "opening"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": true,
+        "rationale": "This protocol intentionally asks for packet-level review of unresolved mug instructions. Holding the unrelated door quote illustrates the conservative cost; it is not itself disputed."
+      }
+    },
+    {
+      "id": "wrong_same_position_labels",
+      "condition": "annotation_false_negative",
+      "description": "Opposing instructions have erroneously identical human labels.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "The workshop supplies mugs."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 27,
+            "quote": "The workshop supplies mugs.",
+            "topic": "mugs",
+            "position": "bring-own"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": true,
+        "rationale": "The author wrote competing mug instructions regardless of the incorrect same position labels. A label-only gate should be shown missing this intended review."
+      }
+    },
+    {
+      "id": "missing_opposing_annotation",
+      "condition": "annotation_false_negative",
+      "description": "The opposing source remains in the packet but its human anchor annotation is missing.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "The workshop supplies mugs."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": true,
+        "rationale": "The author wrote competing mug instructions in the two source texts. Omitting the opposing anchor annotation hides the intended manual review; exact matching does not infer missing annotations."
+      }
+    },
+    {
+      "id": "compatible_quotes_wrong_distinct_labels",
+      "condition": "annotation_false_positive",
+      "description": "Compatible bring-your-own instructions are incorrectly assigned different positions.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "Please bring your own mug."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 26,
+            "quote": "Please bring your own mug.",
+            "topic": "mugs",
+            "position": "supplied"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "Both source lines request the same visitor behavior. Incorrect distinct position labels should expose an unnecessary annotation hold, not be treated as independent evidence of a real dispute."
+      }
+    },
+    {
+      "id": "invalid_unselected_anchor",
+      "condition": "unselected_invalid_anchor",
+      "description": "The selected anchor is valid; an unselected anchor has a bad quote.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "Please bring your own mug."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 26,
+            "quote": "This line does not exist.",
+            "topic": "mugs",
+            "position": "bring-own"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "Only the unselected citation is invalid. The selected quote is eligible in this author oracle, so whole-packet rejection is counted as a conservative withholding cost."
+      }
+    },
+    {
+      "id": "relocated_offsets_repaired",
+      "condition": "clean_control",
+      "description": "Both offsets are corrected after the source prefix is added.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Update: Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 8,
+            "end": 27,
+            "quote": "Doors open at nine.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "This is the repaired control for moved_offsets. The selected exact quote now matches the updated source span."
+      }
+    },
+    {
+      "id": "compatible_different_topics",
+      "condition": "clean_control",
+      "description": "Two correctly grouped, unrelated visitor instructions are selected.",
+      "packet": {
+        "schema_version": 1,
+        "title": "Synthetic workshop packet",
+        "sources": [
+          {
+            "id": "host",
+            "title": "Fictional workshop note host",
+            "text": "Visitors bring their own mug."
+          },
+          {
+            "id": "guest",
+            "title": "Fictional workshop note guest",
+            "text": "Doors open at nine."
+          }
+        ],
+        "anchors": [
+          {
+            "id": "a",
+            "source_id": "host",
+            "start": 0,
+            "end": 29,
+            "quote": "Visitors bring their own mug.",
+            "topic": "mugs",
+            "position": "bring-own"
+          },
+          {
+            "id": "b",
+            "source_id": "guest",
+            "start": 0,
+            "end": 19,
+            "quote": "Doors open at nine.",
+            "topic": "opening",
+            "position": "nine"
+          }
+        ]
+      },
+      "selection": {
+        "anchor_ids": [
+          "a",
+          "b"
+        ]
+      },
+      "oracle": {
+        "selected_spans_valid": true,
+        "review_required": false,
+        "rationale": "A mug instruction and a door time concern different topics; correct different labels should not create a disagreement."
+      }
+    }
+  ]
+}

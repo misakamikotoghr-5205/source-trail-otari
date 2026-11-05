@@ -1,0 +1,110 @@
+{
+  "case_count": 16,
+  "condition_counts": {
+    "annotation_false_negative": 2,
+    "annotation_false_positive": 1,
+    "clean_control": 5,
+    "invalid_selected_citation": 4,
+    "labeled_disagreement": 3,
+    "unselected_invalid_anchor": 1
+  },
+  "dataset_sha256": "8c9bf0413717b2fb6e70f906a04c1e7ee803275c527f223cfe1fece862923f7f",
+  "dataset_version": "1.0.0",
+  "implementation_sha256": {
+    "experiments/pilot.py": "66d1e3824f6c0add183d52f695fb10fcba6f49e861b220e3b6dbffc1e8e550e6",
+    "source_trail/core.py": "4487ef8ae57726d9c0c5ac6bbad7963005f995b7bce173ed75e568599c86d05a"
+  },
+  "inference_performed": false,
+  "limitations": [
+    "Sixteen small authored synthetic cases are a mechanism pilot, not a representative dataset, held-out evaluation, model-performance estimate or statistical generalization.",
+    "No LLM, Otari, external search or human participant is used. No claim is made about semantic truth, entailment, decision quality or source reliability.",
+    "The author oracle is a declared test intention and may be wrong; it was not independently expert-annotated, blinded or adjudicated.",
+    "The quote-only comparator is deliberately weak. Both stronger policies validate the entire packet; this controls their ablation but does not represent every plausible citation system.",
+    "Wrong or missing human labels can hide a needed review; different labels on compatible text can cause a false hold. These cases remain visible rather than relabeled to make the full gate win.",
+    "Whole-packet validation and holds can suppress an otherwise uncontested selected quote. A later study should measure this cost with independently authored real tasks and annotations.",
+    "Version 1.0.0 and all present results were created on 2026-11-05 before the Apart sprint. New sprint work and the required research report remain undone."
+  ],
+  "metrics": {
+    "annotation_hold_cases": "Raw case count withheld by the full-packet disagreement-label rule.",
+    "eligible_quote_withheld": "Cases withheld with valid selected spans and no independent review requirement / all cases with valid selected spans and no review requirement. Includes conservative rejection because an unselected anchor is invalid.",
+    "input_rejected_cases": "Raw case count rejected by input validation; separate from annotation holds.",
+    "invalid_selected_citation_release": "Cases released with author-marked invalid selected citation / all cases marked invalid selected citation. Measures structural citation defects only.",
+    "reporting": "Publish every case and n/N; zero denominator means rate null and display N/A. Metrics use different possibly overlapping subsets, not a summed accuracy score.",
+    "required_review_miss": "Cases released despite an independent author expectation of manual review / all author-marked review-required cases. No semantic-truth or LLM claim."
+  },
+  "pilot_version": "1.0.0",
+  "policies": {
+    "exact_span_only": {
+      "annotation_hold_cases": 0,
+      "eligible_quote_withheld": {
+        "denominator": 7,
+        "display": "1/7",
+        "numerator": 1,
+        "rate": 0.142857
+      },
+      "input_rejected_cases": 5,
+      "invalid_selected_citation_release": {
+        "denominator": 4,
+        "display": "0/4",
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "released_cases": 11,
+      "required_review_miss": {
+        "denominator": 5,
+        "display": "5/5",
+        "numerator": 5,
+        "rate": 1.0
+      }
+    },
+    "full_gate": {
+      "annotation_hold_cases": 4,
+      "eligible_quote_withheld": {
+        "denominator": 7,
+        "display": "2/7",
+        "numerator": 2,
+        "rate": 0.285714
+      },
+      "input_rejected_cases": 5,
+      "invalid_selected_citation_release": {
+        "denominator": 4,
+        "display": "0/4",
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "released_cases": 7,
+      "required_review_miss": {
+        "denominator": 5,
+        "display": "2/5",
+        "numerator": 2,
+        "rate": 0.4
+      }
+    },
+    "quote_only": {
+      "annotation_hold_cases": 0,
+      "eligible_quote_withheld": {
+        "denominator": 7,
+        "display": "0/7",
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "input_rejected_cases": 0,
+      "invalid_selected_citation_release": {
+        "denominator": 4,
+        "display": "4/4",
+        "numerator": 4,
+        "rate": 1.0
+      },
+      "released_cases": 16,
+      "required_review_miss": {
+        "denominator": 5,
+        "display": "5/5",
+        "numerator": 5,
+        "rate": 1.0
+      }
+    }
+  },
+  "protocol_sha256": "b4e73cb9b23ad7e43d977e30717b5c87fd6952c9fdf965d01c1e324dc78f0c3d",
+  "synthetic_cases_only": true,
+  "work_status": "preexisting-2026-11-05-before-Apart-2026-11-13-sprint"
+}
